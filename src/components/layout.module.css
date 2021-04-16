@@ -1,0 +1,101 @@
+@import "../styles/vars.css";
+
+.main {
+  grid-area: main;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.sideBarLeft {
+  grid-area: sideBarLeft;
+  height: 100%;
+  border-right: 1px solid var(--light-grey);
+}
+
+.sideBarRight {
+  grid-area: sideBarRight;
+  height: 100%;
+  border-left: 1px solid var(--light-grey);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.sideBarRight a {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--light-grey);
+  transition: background .5s ease;
+  animation-name: fadein, slideinright;
+  animation-duration: 3s, 2s;
+  animation-delay: .8s, .4;
+  animation-timing-function: ease;
+}
+
+.sideBarRight a:hover {
+  background: var(--link-hover);
+}
+
+.sideBarRight a h3 {
+  transform: rotate(90deg);
+}
+
+.root {
+  height: 100vh;
+  overflow: hidden;
+
+  display: grid;
+  grid-template-rows: 8% 92%;
+  grid-template-columns: 3% 94% 3%;
+  grid-template-areas:
+   "nav nav nav"
+   "sideBarLeft main sideBarRight";
+
+  animation-name: resizeRows, resizeColumns;
+  animation-duration: 2s, 2s;
+  animation-delay: 0s, .5s;
+  animation-timing-function: ease;
+}
+
+@keyframes slideinright {
+  from {
+    transform: translateX(50px);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes resizeRows {
+  0% {
+    grid-template-rows: 0% 92%;
+    grid-template-columns: 0% 100% 0%;
+  }
+  100% {
+    grid-template-rows: 8% 92%;
+    grid-template-columns: 0% 100% 0%;
+  }
+}
+
+@keyframes resizeColumns {
+  0% {
+    grid-template-columns: 0% 100% 0%;
+  }
+  100% {
+    grid-template-columns: 3% 94% 3%;
+  }
+}

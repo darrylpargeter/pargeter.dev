@@ -1,0 +1,18 @@
+.nav {
+  grid-area: nav;
+  border-bottom: 1px solid var(--light-grey);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav > div  {
+  display: flex;
+  margin: 8px;
+}
+
+.nav > div a {
+  display: block;
+  margin: 8px;
+  color: var(--light-grey);
+}
